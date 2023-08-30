@@ -18,8 +18,8 @@ def load_env_variables_from_file(file_path):
     """
     with open(file_path, 'r') as f:
         for line in f:
-            key, value = line.strip().split('=', 1)
-            os.environ[key] = value
+            key, value = map(str.strip, line.split('='))
+            os.environ[key] = value.strip()
 
 def fetch_db():
 
